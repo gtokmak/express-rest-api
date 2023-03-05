@@ -1,0 +1,18 @@
+const mongoose = require('mongoose');
+
+
+const db =()=> {
+    mongoose.connect(process.env.MONGO_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
+        .then(() => {
+            console.log("Veritabanına bağlantı başarılı")
+        })
+        .catch((err) => {
+            console.log("Veritabanı bağlantısı başarısız. Err: ", err)
+        })
+}
+
+
+module.exports = db
